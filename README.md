@@ -68,7 +68,8 @@ The system consists of three main components:
 <div align='center'>
    <img width="600" alt="Screenshot 2025-08-08 085220" src="https://github.com/user-attachments/assets/8dc87991-d886-44e2-8e71-6a86a850e7ad" />
 </div>
-### Aim
+
+## Aim
 
 This project is designed to:
 
