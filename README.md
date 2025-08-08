@@ -10,6 +10,14 @@ The system consists of three main components:
 - **Load Balancer**: Receives requests from the client and forwards them to available servers using a round-robin algorithm.
 - **Server(s)**: Validate if the submitted string is alphanumeric and log the requests.
 
+## Aim
+
+This project is designed to:
+
+- Practice building RESTful APIs with Spring Boot.
+- Understand distributed system concepts such as load balancing and service registration.
+- Gain experience with modular Java projects and microservice communication.
+
 ## Project Structure
 
 - `client/` - Spring Boot application serving the web UI for user input.
@@ -68,14 +76,6 @@ The system consists of three main components:
 <div align='center'>
    <img width="600" alt="Screenshot 2025-08-08 085220" src="https://github.com/user-attachments/assets/8dc87991-d886-44e2-8e71-6a86a850e7ad" />
 </div>
-
-## Aim
-
-This project is designed to:
-
-- Practice building RESTful APIs with Spring Boot.
-- Understand distributed system concepts such as load balancing and service registration.
-- Gain experience with modular Java projects and microservice communication.
 
 ---
 
