@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter a Word</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .error, .response {
+            color: red;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="wordForm" action="" method="POST">
+        <label for="word">Please enter a word:</label>
+        <input type="text" id="word" name="word" required>
+        <p id="error" class="error" style="display: none;"></p>
+        <input type="submit" value="Submit">
+    </form>
+    <p id="response" class="response"></p>
+
+    <script>
+        document.getElementById('wordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var word = document.getElementById('word').value.trim();
+            var errorElement = document.getElementById('error');
+            var responseElement = document.getElementById('response');
+
+            if (word.split(' ').length > 1) {
+                errorElement.textContent = 'Please enter only one word.';
+                errorElement.style.display = 'block';
+            } else {
+                errorElement.style.display = 'none';
+
+                $.ajax({
+                    url: 'http://localhost:8083/check',
+                    type: 'POST',
+                    data: word,
+                    contentType: 'text/plain',
+                    success: function(data) {
+                        responseElement.textContent = data;
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

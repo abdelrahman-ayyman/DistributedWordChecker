@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        ul {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+    </style>
+    <title>Server Logs</title>
+</head>
+    <body>
+        <h1>Server Logs</h1>
+        <pre>
+            <p>Server is running on port: <strong th:text="${serverPort}">8083</strong></p>
+            <br>Log messages will be displayed here.
+        </pre>
+        <ul id="log-box">
+            <li th:each="log : ${logs}" th:text="${log}">Log message</li>
+            <li th:if="${#lists.isEmpty(logs)}">No logs available.</li>
+        </ul>
+        <script>
+            async function fetchLogs() {
+                try {
+                    const response = await fetch('/api/logs');
+                    const logs = await response.json();
+                    document.getElementById('log-box').innerHTML = logs.map(log => `<li>${log}</li>`).join('');
+                } catch (e) {
+                    console.error("Error fetching logs", e);
+                }
+            }
+
+            // Refresh logs every 1 second
+            setInterval(fetchLogs, 1000);
+        </script>
+    </body>
+</html>
