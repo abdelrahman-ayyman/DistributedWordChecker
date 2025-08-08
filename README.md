@@ -56,7 +56,7 @@ This project is designed to:
      ./mvnw spring-boot:run
      ```
    - (Default port can be configured by changing `server.port` in `application.properties`.)
-   - 
+
 3. **Start the Client:**
    - Navigate to the `client/demo` directory.
    - Run:
@@ -68,10 +68,11 @@ This project is designed to:
 ### Example
 
 - Enter a string in the client UI and submit.
+- The result (whether the string is alphanumeric) will be displayed.
 <div align='center'>
    <img width="600" alt="Screenshot 2025-08-08 085238" src="https://github.com/user-attachments/assets/e06ec125-4f5a-4159-a252-7251953a27d9"/>
 </div>
-- The result (whether the string is alphanumeric) will be displayed.
+
 - Server logs can be viewed at [http://localhost:8081/log](http://localhost:8081/log) (if running on the default port, 8081).
 <div align='center'>
    <img width="600" alt="Screenshot 2025-08-08 085220" src="https://github.com/user-attachments/assets/8dc87991-d886-44e2-8e71-6a86a850e7ad" />
